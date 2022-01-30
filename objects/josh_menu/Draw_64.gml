@@ -5,6 +5,7 @@ draw_set_falign(fa_left,fa_middle);
 var	start_x = mouse_xx;
 var	start_y = mouse_yy;
 var	width = 175;
+var	width = 175;
 var	height = ceil(length / 2) * 100;
 var	end_x = start_x + width;
 var	end_y = start_y + height;
@@ -26,7 +27,9 @@ if (drawing == true)
 {
 	with (all)
 	{
-		draw_hitbox();	
+		var sprite = object_get_sprite(object_index);
+		
+		if (sprite != -1) then draw_hitbox();
 	}
 	draw_set_color(box_color);
 	draw_set_alpha(0.7);
@@ -137,7 +140,7 @@ if (drawing == true)
 	}
 }
 
-// Options use with boolean
+// Options with boolean
 if (inspecting == true)
 {
 	draw_set_color(box_color);
