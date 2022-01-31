@@ -73,12 +73,12 @@ drawing_create = false;
 showing_vars = false;
 vars = [];
 var_cursor = 0;
+drawing_typeof = false;
+last_type = 0;
 
 max_vars = 6;
 out_var = 0;
 var_wheel = 0;
-
-current_var = noone;
 
 // Settings
 default_sprite = placeholder;
