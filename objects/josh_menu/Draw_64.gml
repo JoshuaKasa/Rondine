@@ -392,6 +392,12 @@ if (showing_vars == true)
 			
 			draw_rectangle(start_x,start_y + (cell_height * var_cursor), end_x,start_y + (cell_height * (var_cursor + 1)), false);
 			window_set_cursor(cr_handpoint);
+			
+			if (mouse_check_button_pressed(mb_left)) 
+			{
+				drawing_typeof = true;
+				last_type = variable_instance_get(instance, vars[var_cursor]);
+			}
 		}
 		else 
 		{
@@ -448,6 +454,12 @@ if (showing_vars == true)
 			draw_set_alpha(0.1);
 			
 			draw_rectangle(start_x,start_y + (cell_height * (var_cursor - var_wheel)), end_x,start_y + (cell_height * ((var_cursor + 1 - var_wheel))), false);
+			
+			if (mouse_check_button_pressed(mb_left)) 
+			{
+				drawing_typeof = true;
+				last_type = variable_instance_get(instance, vars[var_cursor]);
+			}
 		}
 		else 
 		{
@@ -462,10 +474,18 @@ if (showing_error == true)
 {
 	var message_width = string_width(errors[error]) * 1.1;
 	
-	draw_error(room_width/2 - message_width/2,room_height/2 - 50, message_width,100, errors[error]);	
+	draw_message(room_width/2 - message_width/2,room_height/2 - 50, message_width,100, errors[error], 0);	
 	instance = noone;
 	object_copied = false;
 	drawing = false;
 	creating = false;
 	showing_vars = false;
+}
+// Drawing type of variable
+if (drawing_typeof == true)
+{
+	var msg_width = string_width(capitalize(string(typeof(last_type)))) * 1.2;		
+				
+	draw_message(room_width/2 - msg_width/2,room_height/2 - 50, msg_width,100, capitalize(typeof(last_type)), 1);
+	creating = false;
 }
