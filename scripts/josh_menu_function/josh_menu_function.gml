@@ -17,7 +17,7 @@ function wave(from, to, duration, offset)
 	return from + a4 + sin((((current_time * 0.001) + duration * offset) / duration) * (pi*2)) * a4;
 }
 
-function draw_error(x_,y_, width,height, message_)
+function draw_message(x_,y_, width,height, message_, to_change)
 {
 	draw_set_color(box_color);
 	draw_set_alpha(1);
@@ -48,8 +48,20 @@ function draw_error(x_,y_, width,height, message_)
 		window_set_cursor(cr_handpoint);
 		if (mouse_check_button_pressed(mb_left))
 		{
-			showing_error = false;
-			window_set_cursor(cr_default);
+			if (to_change == 0)
+			{
+				showing_error = false;
+				window_set_cursor(cr_default);
+			}
+			else if (to_change == 1)
+			{
+				drawing_typeof = false;
+				window_set_cursor(cr_default);	
+			}
+			else
+			{
+				// Other messages boolean here	
+			}
 		}
 	}
 	else window_set_cursor(cr_default);
@@ -58,4 +70,15 @@ function draw_error(x_,y_, width,height, message_)
 	draw_text(middle_x,middle_y, "Ok");
 	draw_set_color(text_color);
 	draw_text(center_x,center_y, message_);
+}
+
+function capitalize(str)
+{
+	var s = string_char_at(str, 1);
+		
+	s = string_upper(s);
+	str = string_delete(str, 1,1);
+	str = string_insert(s,str, 1);
+	
+	return str;
 }
