@@ -1,4 +1,6 @@
 // GUI setup
+depth = -1000;
+
 var windows_width = window_get_width();
 var windows_height = window_get_height();
 display_set_gui_size(windows_width,windows_height);

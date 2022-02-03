@@ -177,6 +177,7 @@ if (inspecting == true)
 		if (mouse_check_button_pressed(mb_left))
 		{
 			inspecting = false;
+			window_set_cursor(cr_default);
 		}
 	}
 	else
