@@ -1,9 +1,9 @@
-function draw_hitbox()
+function ___draw_hitbox_()
 {
 	draw_rectangle(bbox_left,bbox_top, bbox_right,bbox_bottom, true);
 }
 
-function rectangle_hover(start_x,start_y, end_x,end_y)
+function ___rectangle_hover_(start_x,start_y, end_x,end_y)
 {
 	var mx = device_mouse_x(0);	
 	var my = device_mouse_y(0);	
@@ -11,13 +11,13 @@ function rectangle_hover(start_x,start_y, end_x,end_y)
 	return point_in_rectangle(mx,my, start_x,start_y, end_x,end_y);
 }
 
-function wave(from, to, duration, offset)
+function ___wave(from, to, duration, offset)
 {
 	var a4 = (to - from) * 0.5;
 	return from + a4 + sin((((current_time * 0.001) + duration * offset) / duration) * (pi*2)) * a4;
 }
 
-function draw_message(x_,y_, width,height, message_, to_change)
+function ___draw_message_(x_,y_, width,height, message_, to_change)
 {
 	draw_set_color(box_color);
 	draw_set_alpha(1);
@@ -72,7 +72,7 @@ function draw_message(x_,y_, width,height, message_, to_change)
 	draw_text(center_x,center_y, message_);
 }
 
-function capitalize(str)
+function ___capitalize_(str)
 {
 	var s = string_char_at(str, 1);
 		

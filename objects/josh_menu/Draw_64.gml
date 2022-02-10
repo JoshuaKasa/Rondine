@@ -29,7 +29,7 @@ if (drawing == true)
 	{
 		var sprite = object_get_sprite(object_index);
 		
-		if (sprite != -1) then draw_hitbox();
+		if (sprite != -1) then ___draw_hitbox_();
 	}
 	draw_set_color(box_color);
 	draw_set_alpha(0.7);
@@ -475,7 +475,7 @@ if (showing_error == true)
 {
 	var message_width = string_width(errors[error]) * 1.1;
 	
-	draw_message(room_width/2 - message_width/2,room_height/2 - 50, message_width,100, errors[error], 0);	
+	___draw_message_(room_width/2 - message_width/2,room_height/2 - 50, message_width,100, errors[error], 0);	
 	instance = noone;
 	object_copied = false;
 	drawing = false;
@@ -485,8 +485,8 @@ if (showing_error == true)
 // Drawing type of variable
 if (drawing_typeof == true)
 {
-	var msg_width = string_width(capitalize(string(typeof(last_type)))) * 1.2;		
+	var msg_width = string_width(___capitalize_(string(typeof(last_type)))) * 1.2;		
 				
-	draw_message(room_width/2 - msg_width/2,room_height/2 - 50, msg_width,100, capitalize(typeof(last_type)), 1);
+	___draw_message_(room_width/2 - msg_width/2,room_height/2 - 50, msg_width,100, ___capitalize_(typeof(last_type)), 1);
 	creating = false;
 }
