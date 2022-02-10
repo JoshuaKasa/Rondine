@@ -11,10 +11,13 @@ function ___rectangle_hover_(start_x,start_y, end_x,end_y)
 	return point_in_rectangle(mx,my, start_x,start_y, end_x,end_y);
 }
 
-function ___wave(from, to, duration, offset)
+function ___oscillate_(from, to, duration)
 {
-	var a4 = (to - from) * 0.5;
-	return from + a4 + sin((((current_time * 0.001) + duration * offset) / duration) * (pi*2)) * a4;
+	var TAU = pi * 2;
+	var dis = (to - from) / 2;
+	duration /= 120;
+	 
+	return from + dis + sin(((current_time / 1000) + to * TAU)/duration) * dis;
 }
 
 function ___draw_message_(x_,y_, width,height, message_, to_change)
@@ -38,7 +41,7 @@ function ___draw_message_(x_,y_, width,height, message_, to_change)
 	var middle_x = x_ + width/2;
 	var middle_y = y_ + height - 30/2;
 	
-	if (rectangle_hover(x_,y_ + height - 30, x_ + width,y_ + height)) 
+	if (___rectangle_hover_(x_,y_ + height - 30, x_ + width,y_ + height)) 
 	{
 		draw_set_alpha(0.1);
 		draw_set_color(text_selected_box_color);

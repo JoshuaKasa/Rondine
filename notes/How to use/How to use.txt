@@ -100,8 +100,8 @@ and the text that is displayed.
 For example you can make the error wave with the 'wave' function, for ex:
 
 - Line 462:
-var wave_ = wave(-5,5, 2, 0);	
-draw_error(room_width/2 - message_width/2 + wave_,room_height/2 - 50, message_width + wave_,100, errors[error]);	
+var osc = oscillate(-5,5, 2, 0);	
+draw_error(room_width/2 - message_width/2 + wave_,room_height/2 - 50, message_width + osc,100, errors[error]);	
 
 This will make the x of the error go from left to right in 2 seconds.
 
