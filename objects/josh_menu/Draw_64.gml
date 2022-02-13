@@ -2,14 +2,6 @@
 draw_set_font(font);
 draw_set_falign(fa_left,fa_middle);
 
-var	start_x = mouse_xx;
-var	start_y = mouse_yy;
-var	width = 175;
-var	width = 175;
-var	height = ceil(length / 2) * 100;
-var	end_x = start_x + width;
-var	end_y = start_y + height;
-
 if (mouse_check_button_pressed(mb_right))
 {
 	var inst = instance_position(mouse_x,mouse_y, all);
@@ -23,6 +15,15 @@ if (mouse_check_button_pressed(mb_right))
 	mouse_xx = GUI_X;
 	mouse_yy = GUI_Y;
 }
+
+var	start_x = mouse_xx;
+var	start_y = mouse_yy;
+var	width = 175;
+var	width = 175;
+var	height = ceil(length / 2) * 100;
+var	end_x = start_x + width;
+var	end_y = start_y + height;
+
 if (drawing == true)
 {
 	with (all)
@@ -108,7 +109,8 @@ if (drawing == true)
 					{
 						if (object_copied != false)
 						{
-							instance_create_layer(mouse_x,mouse_y, layer, copied.object_index);
+							var lay = layer_create(depth - 1);
+							instance_create_layer(mouse_x,mouse_y, lay, copied.object_index);
 						}
 					}
 						break;
@@ -254,7 +256,9 @@ if (creating == true)
 			draw_sprite(selected, 0, mouse_x,mouse_y);
 			if (o_cursor == -1 && mouse_check_button_pressed(mb_left))
 			{
-				instance_create_layer(mouse_x,mouse_y, layer,obj);
+				var lay = layer_create(depth - 1);
+				instance_create_layer(mouse_x,mouse_y, lay,obj);
+				
 				selected_cursor = 0;
 				drawing_create = false;
 			}
@@ -333,7 +337,9 @@ if (creating == true)
 			draw_sprite(selected, 0, mouse_x,mouse_y);
 			if (o_cursor == -1 && mouse_check_button_pressed(mb_left))
 			{
-				instance_create_layer(mouse_x,mouse_y, layer,obj);
+				var lay = layer_create(depth - 1);
+				instance_create_layer(mouse_x,mouse_y, lay,obj);
+				
 				selected_cursor = 0;
 				drawing_create = false;
 			}
