@@ -24,13 +24,21 @@ var	height = ceil(length / 2) * 100;
 var	end_x = start_x + width;
 var	end_y = start_y + height;
 
+var g_width = display_get_gui_width();
+var g_height = display_get_gui_height();
+
 if (drawing == true)
 {
 	with (all)
 	{
 		var sprite = object_get_sprite(object_index);
 		
-		if (sprite != -1) then ___draw_hitbox_();
+		if (sprite != -1) 
+		{
+			draw_set_alpha(1);
+			draw_set_color(josh_menu.box_color);
+			___draw_hitbox_();
+		}
 	}
 	draw_set_color(box_color);
 	draw_set_alpha(0.7);
@@ -77,6 +85,7 @@ if (drawing == true)
 				drawing = false;
 				creating = false;
 				showing_vars = false;
+				inspecting = false;
 				window_set_cursor(cr_default);					
 			}
 			if (cursor == 2) then creating = true;
@@ -149,15 +158,15 @@ if (inspecting == true)
 	with (instance)
 	{
 		draw_set_alpha(0.7);
-		draw_rectangle(room_width - 325,0, room_width, 270, false);
+		draw_rectangle(g_width - 325,0, g_width, 270, false);
 		draw_set_alpha(1);
-		draw_rectangle(room_width - 325,0, room_width, 270, true);
+		draw_rectangle(g_width - 325,0, g_width, 270, true);
 	}
 	draw_set_color(text_color);
 	with (instance)
 	{
 		draw_set_valign(fa_top);
-		draw_text(room_width - 300,15, "ID: " + string(id) + 
+		draw_text(g_width - 300,15, "ID: " + string(id) + 
 			"\nObject: " + string(object_get_name(object_index)) +
 			"\nX: " + string(x) + "\nY: " + string(y) +
 			"\nWidth: " + string(sprite_width) + "\nHeight: " + string(sprite_height) +
@@ -171,8 +180,8 @@ if (inspecting == true)
 	var text_width = string_width(exit_text);
 	
 	draw_set_color(col);
-	draw_text(room_width - 25, 5, exit_text);
-	if (GUI_X > room_width - 35 && GUI_X < room_width - (text_width - 10) && GUI_Y > 5 && GUI_Y < 35) 
+	draw_text(g_width - 25, 5, exit_text);
+	if (GUI_X > g_width - 35 && GUI_X < g_width - (text_width - 10) && GUI_Y > 5 && GUI_Y < 35) 
 	{
 		if (merge < 1) then merge += 0.05;
 		window_set_cursor(cr_handpoint);
@@ -355,9 +364,9 @@ if (showing_vars == true)
 	
 	if (len <= max_vars)
 	{	
-		var start_x = room_width - 325;
+		var start_x = g_width - 325;
 		var start_y = 0;
-		var end_x = room_width;
+		var end_x = g_width;
 		var cell_height = 50;
 		var end_y = cell_height * len;
 		var width = start_x - end_x;
@@ -416,9 +425,9 @@ if (showing_vars == true)
 	{
 		out_var = array_length(vars) - max_vars;
 
-		var start_x = room_width - 325;
+		var start_x = g_width - 325;
 		var start_y = 0;
-		var end_x = room_width;
+		var end_x = g_width;
 		var cell_height = 50;
 		var end_y = cell_height * max_vars;
 		var width = start_x - end_x;
@@ -481,7 +490,7 @@ if (showing_error == true)
 {
 	var message_width = string_width(errors[error]) * 1.1;
 	
-	___draw_message_(room_width/2 - message_width/2,room_height/2 - 50, message_width,100, errors[error], 0);	
+	___draw_message_(g_width/2 - message_width/2,g_height/2 - 50, message_width,100, errors[error], 0);	
 	instance = noone;
 	object_copied = false;
 	drawing = false;
@@ -493,6 +502,6 @@ if (drawing_typeof == true)
 {
 	var msg_width = string_width(___capitalize_(string(typeof(last_type)))) * 1.2;		
 				
-	___draw_message_(room_width/2 - msg_width/2,room_height/2 - 50, msg_width,100, ___capitalize_(typeof(last_type)), 1);
+	___draw_message_(g_width/2 - msg_width/2,g_height/2 - 50, msg_width,100, ___capitalize_(typeof(last_type)), 1);
 	creating = false;
 }
