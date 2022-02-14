@@ -5,8 +5,8 @@ function ___draw_hitbox_()
 
 function ___rectangle_hover_(start_x,start_y, end_x,end_y)
 {
-	var mx = device_mouse_x(0);	
-	var my = device_mouse_y(0);	
+	var mx = device_mouse_x_to_gui(0);
+	var my = device_mouse_y_to_gui(0);
 	
 	return point_in_rectangle(mx,my, start_x,start_y, end_x,end_y);
 }
