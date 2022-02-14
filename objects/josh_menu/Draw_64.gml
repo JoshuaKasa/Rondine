@@ -29,17 +29,6 @@ var g_height = display_get_gui_height();
 
 if (drawing == true)
 {
-	with (all)
-	{
-		var sprite = object_get_sprite(object_index);
-		
-		if (sprite != -1) 
-		{
-			draw_set_alpha(1);
-			draw_set_color(josh_menu.box_color);
-			___draw_hitbox_();
-		}
-	}
 	draw_set_color(box_color);
 	draw_set_alpha(0.7);
 	draw_rectangle(mouse_xx,mouse_yy, end_x, end_y, false);
@@ -184,17 +173,14 @@ if (inspecting == true)
 	if (GUI_X > g_width - 35 && GUI_X < g_width - (text_width - 10) && GUI_Y > 5 && GUI_Y < 35) 
 	{
 		if (merge < 1) then merge += 0.05;
-		window_set_cursor(cr_handpoint);
 		if (mouse_check_button_pressed(mb_left))
 		{
 			inspecting = false;
-			window_set_cursor(cr_default);
 		}
 	}
 	else
 	{
 		if (merge > 0) then merge -= 0.05;	
-		window_set_cursor(cr_default);
 	}
 }
 if (creating == true)
@@ -262,7 +248,7 @@ if (creating == true)
 			else selected = default_sprite;
 		
 			draw_set_alpha(0.3);
-			draw_sprite(selected, 0, mouse_x,mouse_y);
+			draw_sprite(selected, 0, GUI_X,GUI_Y);
 			if (o_cursor == -1 && mouse_check_button_pressed(mb_left))
 			{
 				var lay = layer_create(depth - 1);
@@ -343,7 +329,7 @@ if (creating == true)
 			else selected = default_sprite;
 		
 			draw_set_alpha(0.3);
-			draw_sprite(selected, 0, mouse_x,mouse_y);
+			draw_sprite(selected, 0, GUI_X,GUI_Y);
 			if (o_cursor == -1 && mouse_check_button_pressed(mb_left))
 			{
 				var lay = layer_create(depth - 1);
