@@ -1,6 +1,6 @@
 /// @desc
 draw_set_font(font);
-draw_set_falign(fa_left,fa_middle);
+___draw_set_falign_(fa_left,fa_middle);
 
 if (mouse_check_button_pressed(mb_right))
 {
@@ -18,7 +18,6 @@ if (mouse_check_button_pressed(mb_right))
 
 var	start_x = mouse_xx;
 var	start_y = mouse_yy;
-var	width = 175;
 var	width = 175;
 var	height = ceil(length / 2) * 100;
 var	end_x = start_x + width;
@@ -291,7 +290,7 @@ if (creating == true)
 			else color = text_color;
 			
 			draw_set_color(color);
-			draw_set_falign(fa_left,fa_middle);
+			___draw_set_falign_(fa_left,fa_middle);
 			
 			draw_text(x_start + 10, (y_start + cell_height/2) + cells, object_get_name(objects[i]));
 		}
@@ -490,4 +489,24 @@ if (drawing_typeof == true)
 				
 	___draw_message_(g_width/2 - msg_width/2,g_height/2 - 50, msg_width,100, ___capitalize_(typeof(last_type)), 1);
 	creating = false;
+}
+
+// Full debug mode
+if (full_debug == true)
+{
+	with (all)	
+	{
+		if (position_meeting(mouse_x,mouse_y, object_index))
+		{
+			if (mouse_check_button_pressed(mb_any)) 
+			{
+				___draw_text_fade_(g_width/2,g_height/2, string(id) + " Was clicked");
+			}
+		}
+	}
+	if (instance_count > old_number)
+	{
+		old_number = instance_count;
+		___draw_text_fade_(g_width/2,g_height/2, "New instance was created");
+	}
 }

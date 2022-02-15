@@ -3,6 +3,12 @@ function ___draw_hitbox_()
 	draw_rectangle(bbox_left,bbox_top, bbox_right,bbox_bottom, true);
 }
 
+function ___draw_set_falign_(halign,valign)
+{
+	draw_set_halign(halign);
+	draw_set_valign(valign);
+}
+
 function ___rectangle_hover_(start_x,start_y, end_x,end_y)
 {
 	var mx = device_mouse_x_to_gui(0);
@@ -84,4 +90,17 @@ function ___capitalize_(str)
 	str = string_insert(s,str, 1);
 	
 	return str;
+}
+
+function ___draw_text_fade_(x__,y__, text)
+{
+	var lay = layer_create(josh_menu.depth);
+	
+	instance_create_layer(x,y, lay, josh_menu_text);
+	with (josh_menu_text)
+	{
+		x_ = x__;
+		y_ = y__;
+		text_ = text;
+	}
 }

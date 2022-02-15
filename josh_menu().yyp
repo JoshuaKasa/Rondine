@@ -3,6 +3,7 @@
     {"id":{"name":"placeholder","path":"sprites/placeholder/placeholder.yy",},"order":3,},
     {"id":{"name":"josh_menu_function","path":"scripts/josh_menu_function/josh_menu_function.yy",},"order":0,},
     {"id":{"name":"How to use","path":"notes/How to use/How to use.yy",},"order":2,},
+    {"id":{"name":"josh_menu_text","path":"objects/josh_menu_text/josh_menu_text.yy",},"order":1,},
     {"id":{"name":"josh_menu","path":"objects/josh_menu/josh_menu.yy",},"order":0,},
     {"id":{"name":"josh_menu_font","path":"fonts/josh_menu_font/josh_menu_font.yy",},"order":0,},
   ],

@@ -1,16 +1,9 @@
-// GUI setup
+// Setup
 depth = -1000;
 
 var windows_width = window_get_width();
 var windows_height = window_get_height();
 display_set_gui_size(windows_width,windows_height);
-
-// Functions
-function draw_set_falign(halign,valign)
-{
-	draw_set_halign(halign);
-	draw_set_valign(valign);
-}
 
 // Macros
 #macro GUI_X device_mouse_x_to_gui(0)
@@ -89,3 +82,7 @@ box_color = c_black;
 text_color = c_white;
 text_selected_color = c_green;
 text_selected_box_color = c_gray;
+
+// Full debug
+full_debug = true;
+old_number = instance_count;
