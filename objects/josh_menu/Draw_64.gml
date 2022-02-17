@@ -435,7 +435,7 @@ if (showing_vars == true)
 		
 		draw_set_color(text_color);
 		
-		for (var i = var_wheel; i <= len - (max_vars - var_wheel); i++)
+		for (var i = var_wheel; i < var_wheel + max_vars; i++)
 		{
 			var text = variable_instance_get(instance, vars[i]);
 			
@@ -449,7 +449,7 @@ if (showing_vars == true)
 		
 		if (GUI_Y < end_y && GUI_Y > start_y && GUI_X < end_x && GUI_X > start_x)
 		{
-			var_cursor = abs(((end_y - GUI_Y) div cell_height) - out_max - 2) + var_wheel;
+			var_cursor = abs(((end_y - GUI_Y) div cell_height) - out_max - 1) + var_wheel;
 			
 			draw_set_color(text_selected_box_color);
 			draw_set_alpha(0.1);
