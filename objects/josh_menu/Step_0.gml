@@ -1,4 +1,8 @@
 /// @desc
+var windows_width = window_get_width();
+var windows_height = window_get_height();
+display_set_gui_size(windows_width,windows_height);
+
 if (array_length(objects) > max_objects)
 {
 	if (mouse_wheel_down() && wheel < out_max) then wheel++;
