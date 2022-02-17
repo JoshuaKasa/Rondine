@@ -1,10 +1,6 @@
 // Setup
 depth = -1000;
 
-var windows_width = window_get_width();
-var windows_height = window_get_height();
-display_set_gui_size(windows_width,windows_height);
-
 // Macros
 #macro GUI_X device_mouse_x_to_gui(0)
 #macro GUI_Y device_mouse_y_to_gui(0)
