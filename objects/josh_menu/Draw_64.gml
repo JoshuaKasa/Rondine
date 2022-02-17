@@ -504,9 +504,14 @@ if (full_debug == true)
 			}
 		}
 	}
-	if (instance_count > old_number)
+	if (instance_count > old_number + instance_number(josh_menu_text))
+	{
+		old_number = instance_count - 1;
+		___draw_text_fade_(g_width/2,g_height/2, "An instance was created");
+	}
+	if (instance_count < old_number - instance_number(josh_menu_text))
 	{
 		old_number = instance_count;
-		___draw_text_fade_(g_width/2,g_height/2, "New instance was created");
+		___draw_text_fade_(g_width/2,g_height/2, "An instances was destroyed");
 	}
 }

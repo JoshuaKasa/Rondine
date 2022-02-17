@@ -84,5 +84,5 @@ text_selected_color = c_green;
 text_selected_box_color = c_gray;
 
 // Full debug
-full_debug = true;
+full_debug = false;
 old_number = instance_count;
