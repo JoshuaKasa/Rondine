@@ -13,3 +13,5 @@ if (array_length(vars) > max_vars)
 	if (mouse_wheel_down() && var_wheel < out_var) then var_wheel++;
 	else if (mouse_wheel_up() && var_wheel > 0) then var_wheel--;
 }
+
+if (instance_number(josh_menu) > 1) then instance_destroy();
