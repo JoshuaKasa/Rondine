@@ -61,10 +61,9 @@ if (drawing == true)
 		draw_rectangle(mouse_xx,mouse_yy + (cell_height * cursor), end_x,mouse_yy + (cell_height * (cursor + 1)), false);
 		draw_set_color(text_color);
 		draw_set_alpha(1);
-		window_set_cursor(cr_handpoint);	
 			
 		if (mouse_check_button_pressed(mb_left))
-		{
+		{				
 			// Options not related to the selected instance
 			if (cursor == 6)
 			{
@@ -74,7 +73,6 @@ if (drawing == true)
 				creating = false;
 				showing_vars = false;
 				inspecting = false;
-				window_set_cursor(cr_default);					
 			}
 			if (cursor == 2) then creating = true;
 			if (instance != noone)
@@ -130,7 +128,6 @@ if (drawing == true)
 	}
 	else 
 	{
-		window_set_cursor(cr_default);
 		if (mouse_check_button_pressed(mb_left))
 		{
 			drawing = false;
@@ -222,7 +219,6 @@ if (creating == true)
 			draw_set_color(text_selected_box_color);
 			draw_set_alpha(0.1);
 			draw_rectangle(x_start,y_start + (cell_height * o_cursor) - cell_height * wheel, x_end,y_start + (cell_height * (o_cursor + 1)) - cell_height * wheel, false);
-			window_set_cursor(cr_handpoint);
 		
 			if (mouse_check_button_pressed(mb_left))
 			{
@@ -233,7 +229,6 @@ if (creating == true)
 		else 
 		{
 			o_cursor = -1;
-			window_set_cursor(cr_default);
 		}
 	
 		if (drawing_create == true)
@@ -303,7 +298,6 @@ if (creating == true)
 			draw_set_color(text_selected_box_color);
 			draw_set_alpha(0.1);
 			draw_rectangle(x_start,y_start + (cell_height * o_cursor), x_end,y_start + (cell_height * (o_cursor + 1)), false);
-			window_set_cursor(cr_handpoint);
 		
 			if (mouse_check_button_pressed(mb_left))
 			{
@@ -314,7 +308,6 @@ if (creating == true)
 		else 
 		{
 			o_cursor = -1;
-			window_set_cursor(cr_default);
 		}
 		
 		if (drawing_create == true)
@@ -392,18 +385,17 @@ if (showing_vars == true)
 			draw_set_alpha(0.1);
 			
 			draw_rectangle(start_x,start_y + (cell_height * var_cursor), end_x,start_y + (cell_height * (var_cursor + 1)), false);
-			window_set_cursor(cr_handpoint);
 			
 			if (mouse_check_button_pressed(mb_left)) 
 			{
-				drawing_typeof = true;
-				last_type = variable_instance_get(instance, vars[var_cursor]);
+				drawing_var = true;
+				last_type = typeof(variable_instance_get(instance, vars[var_cursor]));
+				last_var = vars[var_cursor];
 			}
 		}
 		else 
 		{
 			var_cursor = -1;
-			window_set_cursor(cr_default);
 		}
 	}
 	else if (len > max_vars)
@@ -458,14 +450,14 @@ if (showing_vars == true)
 			
 			if (mouse_check_button_pressed(mb_left)) 
 			{
-				drawing_typeof = true;
-				last_type = variable_instance_get(instance, vars[var_cursor]);
+				drawing_var = true;
+				last_type = typeof(variable_instance_get(instance, vars[var_cursor]));
+				last_var = vars[var_cursor];
 			}
 		}
 		else 
 		{
 			var_cursor = -1;
-			window_set_cursor(cr_default);
 		}
 	}
 	else error = 1;
@@ -483,11 +475,11 @@ if (showing_error == true)
 	showing_vars = false;
 }
 // Drawing type of variable
-if (drawing_typeof == true)
-{
-	var msg_width = string_width(___capitalize_(string(typeof(last_type)))) * 1.2;		
-				
-	___draw_message_(g_width/2 - msg_width/2,g_height/2 - 50, msg_width,100, ___capitalize_(typeof(last_type)), 1);
+if (drawing_var == true)
+{	
+	var msg_width = 150;
+	
+	___draw_variable_(g_width/2 - msg_width/2,g_height/2 - 50, msg_width,120, ___capitalize_(string(last_type)));
 	creating = false;
 }
 
@@ -515,3 +507,4 @@ if (full_debug == true)
 		___draw_text_fade_(g_width/2,g_height/2, "An instances was destroyed");
 	}
 }
+
