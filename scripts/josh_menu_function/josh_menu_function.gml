@@ -11,8 +11,8 @@ function ___draw_set_falign_(halign,valign)
 
 function ___rectangle_hover_(start_x,start_y, end_x,end_y)
 {
-	var mx = device_mouse_x_to_gui(0);
-	var my = device_mouse_y_to_gui(0);
+	var mx = GUI_X;
+	var my = GUI_Y;
 	
 	return point_in_rectangle(mx,my, start_x,start_y, end_x,end_y);
 }
@@ -24,6 +24,11 @@ function ___oscillate_(from, to, duration)
 	duration /= 120;
 	 
 	return from + dis + sin(((current_time / 1000) + to * TAU)/duration) * dis;
+}
+
+function ___blink_(from, to, duration)
+{
+	return round(___oscillate_(from, to, duration));
 }
 
 function ___draw_message_(x_,y_, width,height, message_, to_change)
@@ -54,18 +59,15 @@ function ___draw_message_(x_,y_, width,height, message_, to_change)
 		draw_rectangle(x_,y_ + height - 30, x_ + width,y_ + height, false);		
 		draw_set_color(text_selected_color);
 		
-		window_set_cursor(cr_handpoint);
 		if (mouse_check_button_pressed(mb_left))
 		{
 			if (to_change == 0)
 			{
 				showing_error = false;
-				window_set_cursor(cr_default);
 			}
 			else if (to_change == 1)
 			{
-				drawing_typeof = false;
-				window_set_cursor(cr_default);	
+				drawing_var = false;
 			}
 			else
 			{
@@ -73,12 +75,158 @@ function ___draw_message_(x_,y_, width,height, message_, to_change)
 			}
 		}
 	}
-	else window_set_cursor(cr_default);
 	
 	draw_set_alpha(1);
 	draw_text(middle_x,middle_y, "Ok");
 	draw_set_color(text_color);
 	draw_text(center_x,center_y, message_);
+}
+
+function ___draw_variable_(x_,y_, width,height, text)
+{
+	var cells = array_length(types);
+	var cell_height = (height - (height - 30)) * 1.2;
+	var total_height = cell_height * cells;
+	var box_height = 30 * 1.2;
+	var confirm_height = box_height + 30 * 1.2;
+	
+	___draw_set_falign_(fa_middle,fa_center);
+	draw_set_alpha(0.7);
+	
+	draw_set_color(box_color);
+	draw_rectangle(x_,y_, x_ + width,y_ + height, false);
+	draw_rectangle(x_,y_ - box_height, x_ + width,y_, false);
+	draw_rectangle(x_,y_ - confirm_height, x_ + width,y_ - box_height, false);
+	
+	draw_set_alpha(1);
+	
+	draw_set_color(box_color);
+	draw_rectangle(x_,y_ - box_height, x_ + width,y_ - 1, true);
+	draw_rectangle(x_,y_, x_ + width,y_ + height, true);
+	draw_line(x_,y_ + height - cell_height, x_ + width,y_ + height - cell_height);
+	draw_rectangle(x_,y_ - confirm_height, x_ + width,y_ - box_height - 1, true);
+	
+	draw_set_color(text_color);
+	
+	if (___rectangle_hover_(x_,y_ - box_height, x_ + width,y_ - 1))
+	{
+		if (mouse_check_button_pressed(mb_left))
+		{
+			keyboard_string = new_var;
+			writing_type = !writing_type;	
+		}
+	}
+	else if (!___rectangle_hover_(x_,y_ - box_height, x_ + width,y_ - 1))
+	{
+		if (mouse_check_button_pressed(mb_left))
+		{
+			writing_type = false;	
+		}
+	}
+	
+	if (___rectangle_hover_(x_,y_ + height - cell_height, x_ + width,y_ + height))
+	{
+		draw_set_alpha(0.1);
+		draw_set_color(text_selected_box_color);
+		draw_rectangle(x_,y_ + height - cell_height, x_ + width,y_ + height, false);		
+		draw_set_color(text_selected_color);	
+		
+		if (mouse_check_button_pressed(mb_left))
+		{
+			drawing_types = !drawing_types;	
+		}
+	}
+	
+	draw_set_alpha(1);
+	draw_text(x_ + width/2,y_ + height - cell_height/2, "Type");
+	draw_set_color(text_color);
+	draw_text(x_ + width/2,y_ + height/2 - cell_height/2, text);
+	
+	draw_set_color(box_color);
+	
+	if (drawing_types == true)
+	{	
+		for (var i = 1; i <= cells; i++)
+		{
+			draw_line(x_,y_ + height + cell_height * i, x_ + width,y_ + height + cell_height * i);
+		}
+		
+		draw_set_alpha(0.7);
+		draw_set_color(box_color);
+		
+		draw_rectangle(x_,y_ + height + 1, x_ + width,y_ + height + total_height, false);
+		
+		if (___rectangle_hover_(x_,y_ + height, x_ + width,y_ + height + total_height))
+		{
+			draw_set_color(text_selected_box_color);
+			draw_set_alpha(0.1);
+			
+			type_cursor = abs((y_ + height - GUI_Y) div cell_height);
+			
+			draw_rectangle(x_,y_ + height + (type_cursor * cell_height), x_ + width,y_ + height + ((type_cursor + 1) * cell_height), false);
+			
+			if (mouse_check_button_pressed(mb_left))
+			{
+				last_type = typeof(types[type_cursor]);
+				drawing_types = false;
+			}
+		}
+		else type_cursor = -1;
+		
+		for (var i = 0; i < cells; i++)
+		{
+			if (type_cursor == i) then draw_set_color(text_selected_color);
+			else draw_set_color(text_color);
+			draw_set_alpha(1);
+		
+			draw_text(x_ + width/2,y_ + (height + cell_height/2) + (cell_height * i), ___capitalize_(typeof(types[i]))); 
+		}
+	}
+	
+	___draw_set_falign_(fa_left,fa_center);
+	draw_set_color(text_color);
+	if (writing_type == true && string_width(keyboard_string) <= width)
+	{
+		new_var = keyboard_string;
+
+		if (keyboard_check_pressed(vk_enter)) then writing_type = false;
+		
+		draw_text_color(x_ + 5 + string_width(new_var),y_ - box_height/2, "|", text_color,text_color,text_color,text_color, ___blink_(1,0, 30));
+	}
+	draw_text(x_ + 5,y_ - box_height/2, new_var);
+	
+	___draw_set_falign_(fa_middle,fa_center);
+	if (___rectangle_hover_(x_,y_ - confirm_height, x_ + width,y_ - box_height - 1))
+	{
+		draw_set_alpha(0.1);
+		draw_set_color(text_selected_box_color);
+		draw_rectangle(x_,y_ - confirm_height, x_ + width,y_ - box_height - 1, false);
+		draw_set_color(text_selected_color);
+
+		if (mouse_check_button_pressed(mb_left))
+		{
+			drawing_var = false;
+			if (new_var != "")
+			{
+				switch (last_type)
+				{
+					case "bool":
+						new_var = bool(new_var);
+					break;
+					case "number":
+						new_var = real(new_var);
+					break;
+					case "string":
+						new_var = string(new_var);
+					break;
+						
+				}
+				variable_instance_set(instance, last_var, new_var);	
+			}
+		}
+	}
+	draw_set_alpha(1);
+	draw_text(x_ + width/2,y_ - confirm_height + cell_height/2, "Confirm");
 }
 
 function ___capitalize_(str)
