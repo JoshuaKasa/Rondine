@@ -64,7 +64,13 @@ drawing_create = false;
 showing_vars = false;
 vars = [];
 var_cursor = 0;
-drawing_typeof = false;
+drawing_var = false;
+drawing_types = false;
+types = [0, true, "Hello world!"];
+writing_type = false;
+new_var = "";
+last_var = 0;
+type_cursor = 0;
 last_type = 0;
 
 max_vars = 6;
