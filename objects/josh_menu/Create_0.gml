@@ -12,11 +12,110 @@ mouse_yy = mouse_y;
 drawing = false;
 
 // Menu options
-options = ["Inspect", "Delete", "Create", "Copy","Paste", "Variable", "Back"];
+template =  new Option("Template", 
+			function()
+			{
+				show_message("Hello world!");		
+			}
+		);
+
+options = [
+	new Option("Inspect",
+		function()
+		{
+			inspecting = true;
+			showing_vars = false;
+		}
+	),
+	new Option("Delete",
+		function()
+		{
+			if (instance != noone) then instance_destroy(instance);
+			else 
+			{
+				error = 0;
+				showing_error = true;
+			}
+		}
+	),
+	new Option("Create",
+		function()
+		{
+			creating = true;
+		}
+	),
+	new Option("Copy",
+		function()
+		{
+			if (instance != noone)
+			{
+				copied = instance;
+				object_copied = true;
+			}
+			else
+			{
+				error = 0;
+				showing_error = true;	
+			}
+		}
+	),
+	new Option("Paste",
+		function()
+		{
+			if (object_copied != false)
+			{
+				var lay = layer_create(depth - 1);
+				instance_create_layer(mouse_x,mouse_y, lay, copied.object_index);
+			}
+			else
+			{
+				error = 2;
+				showing_error = true;	
+			}
+		}
+	),
+	new Option("Variable",
+		function()
+		{
+			if (instance != noone)
+			{
+				var variables = variable_instance_get_names(instance);
+				
+				if (array_length(variables) > 0)
+				{
+					inspecting = false;
+					showing_vars = true;
+				}
+				else
+				{
+					error = 1;
+					showing_error = true;
+				}
+			}
+			else
+			{
+				error = 0;
+				showing_error = true;		
+			}
+		}
+	),
+	new Option("Back",
+		function()
+		{
+			instance = noone;
+			object_copied = false;
+			drawing = false;
+			creating = false;
+			showing_vars = false;
+			inspecting = false;
+		}
+	),
+	
+];
 length = array_length(options);
 
 showing_error = false;
-errors = ["No object selected", "Selected object has no variables"];
+errors = ["No object selected", "Selected object has no variables", "No object copied"];
 error = 0;
 
 cursor = 0;
@@ -66,7 +165,7 @@ vars = [];
 var_cursor = 0;
 drawing_var = false;
 drawing_types = false;
-types = [0, true, "Hello world!"];
+types = [1, true, "Hello world!"];
 writing_type = false;
 new_var = "";
 last_var = 0;
