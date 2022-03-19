@@ -49,7 +49,7 @@ if (drawing == true)
 		
 		draw_set_color(color);
 		
-		draw_text(mouse_xx + 10,mouse_yy + text_start_y + (cell_height * i), options[i]);
+		draw_text(mouse_xx + 10,mouse_yy + text_start_y + (cell_height * i), options[i].name);
 	}
 	// Mouse
 	if (GUI_Y < end_y && GUI_Y > start_y && GUI_X < end_x && GUI_X > start_x)
@@ -64,66 +64,7 @@ if (drawing == true)
 			
 		if (mouse_check_button_pressed(mb_left))
 		{				
-			// Options not related to the selected instance
-			if (cursor == 6)
-			{
-				instance = noone;
-				object_copied = false;
-				drawing = false;
-				creating = false;
-				showing_vars = false;
-				inspecting = false;
-			}
-			if (cursor == 2) then creating = true;
-			if (instance != noone)
-			{
-				// Options related to a selected instance
-				switch (cursor)
-				{
-					case 0: 
-					{
-						inspecting = true;
-						showing_vars = false;
-					}
-						break;
-								
-					case 1: 
-					{
-						instance_destroy(instance);	
-					}
-						break;
-								
-					case 3: 
-					{
-						copied = instance;
-						object_copied = true;
-					}
-						break;
-								
-					case 4: 
-					{
-						if (object_copied != false)
-						{
-							var lay = layer_create(depth - 1);
-							instance_create_layer(mouse_x,mouse_y, lay, copied.object_index);
-						}
-					}
-						break;
-						
-					case 5: 
-					{
-						inspecting = false;
-						showing_vars = true;
-					}
-						break;
-				}
-			}
-			// Options not related to a selected instance
-			else if (instance == noone && cursor != 6 && cursor != 2) 
-			{
-				error = 0;
-				showing_error = true;
-			}
+			options[cursor].func();	
 		}
 	}
 	else 
