@@ -177,12 +177,12 @@ out_var = 0;
 var_wheel = 0;
 
 // Settings
-default_sprite = placeholder;
-font = josh_menu_font;
-box_color = c_black;
-text_color = c_white;
-text_selected_color = c_green;
-text_selected_box_color = c_gray;
+default_sprite = SPRITE;
+font = FONT;
+box_color = MENU_COLOR;
+text_color = TEXT_COLOR;
+text_selected_color = SELECTED_TEXT_COLOR;
+text_selected_box_color = SELECTED_MENU_COLOR;
 
 // Full debug
 full_debug = false;
