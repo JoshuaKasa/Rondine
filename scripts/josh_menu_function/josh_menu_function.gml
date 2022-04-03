@@ -255,12 +255,18 @@ function ___draw_text_fade_(x__,y__, text)
 
 function ___array_merge_(array1, array2)
 {
-	var length = array_length(array1);
+	var temp = [];
+	var length1 = array_length(array1);
+	var length2 = array_length(array2);
 	
-	for (i = 0; i < length; i++)
+	for (var i = 0; i < length1; i++)
 	{
-		array_push(array2, array1[i]);
+		array_push(temp, array1[i]);
+	}
+	for (var i = 0; i < length2; i++)
+	{
+		array_push(temp, array2[i]);	
 	}
 	
-	return array2;
+	return temp;
 }

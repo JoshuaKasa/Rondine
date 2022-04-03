@@ -88,8 +88,7 @@ options = [
 				}
 				else
 				{
-					error = 1;
-					showing_error = true;
+					inserted = false;
 				}
 			}
 			else
