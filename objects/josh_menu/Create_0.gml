@@ -70,7 +70,7 @@ options = [
 			else
 			{
 				error = 2;
-				showing_error = true;	
+				showing_error = true;
 			}
 		}
 	),
@@ -79,17 +79,8 @@ options = [
 		{
 			if (instance != noone)
 			{
-				var variables = variable_instance_get_names(instance);
-				
-				if (array_length(variables) > 0)
-				{
-					inspecting = false;
-					showing_vars = true;
-				}
-				else
-				{
-					inserted = false;
-				}
+				inspecting = false;
+				showing_vars = true;
 			}
 			else
 			{

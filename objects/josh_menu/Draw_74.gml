@@ -9,6 +9,9 @@ if (mouse_check_button_pressed(mb_right))
 	if (inst != noone)
 	{
 		instance = inst;
+		showing_vars = false;
+		vars = variable_instance_get_names(instance);
+		vars = ___array_merge_(vars, default_vars);
 	}
 	
 	drawing = true;
@@ -278,14 +281,6 @@ if (creating == true)
 
 if (showing_vars == true)
 {
-	
-	if (inserted == false)
-	{
-		vars = variable_instance_get_names(instance);
-		vars = ___array_merge_(vars, default_vars);	
-		inserted = true;
-	}
-		
 	out_var = array_length(vars) - max_vars;
 
 	var start_x = g_width - 325;
@@ -327,7 +322,7 @@ if (showing_vars == true)
 		
 	if (GUI_Y < end_y && GUI_Y > start_y && GUI_X < end_x && GUI_X > start_x)
 	{
-		var_cursor = abs(((end_y - GUI_Y) div cell_height) - out_max - 1) + var_wheel;
+		var_cursor = abs(((end_y - GUI_Y) div cell_height) - out_max) + var_wheel;
 			
 		draw_set_color(text_selected_box_color);
 		draw_set_alpha(0.1);
