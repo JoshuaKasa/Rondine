@@ -252,3 +252,15 @@ function ___draw_text_fade_(x__,y__, text)
 		text_ = text;
 	}
 }
+
+function ___array_merge_(array1, array2)
+{
+	var length = array_length(array1);
+	
+	for (i = 0; i < length; i++)
+	{
+		array_push(array2, array1[i]);
+	}
+	
+	return array2;
+}

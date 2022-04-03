@@ -161,7 +161,27 @@ selected_cursor = 0;
 drawing_create = false;
 
 showing_vars = false;
+default_vars = 
+[
+	"direction",
+	"gravity",
+	"hspeed",
+	"vspeed",
+	"speed",
+	"x",
+	"y",
+	"sprite_index",
+	"image_alpha",
+	"image_angle",
+	"image_blend",
+	"image_index",
+	"image_number",
+	"image_speed",
+	"image_xscale",
+	"image_yscale",
+];
 vars = [];
+inserted = false;
 var_cursor = 0;
 drawing_var = false;
 drawing_types = false;
