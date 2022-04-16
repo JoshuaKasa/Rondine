@@ -23,8 +23,16 @@ options = [
 	new Option("Inspect",
 		function()
 		{
-			inspecting = true;
-			showing_vars = false;
+			if (instance != noone)
+			{
+				inspecting = true;
+				showing_vars = false;
+			}
+			else 
+			{
+				error = 0;
+				showing_error = true;
+			}
 		}
 	),
 	new Option("Delete",

@@ -8,6 +8,7 @@ if (mouse_check_button_pressed(mb_right))
 	
 	if (inst != noone)
 	{
+		var_wheel = 0;
 		instance = inst;
 		showing_vars = false;
 		vars = variable_instance_get_names(instance);
