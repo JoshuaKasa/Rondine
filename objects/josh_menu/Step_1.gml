@@ -16,5 +16,7 @@ if (instance_number(josh_menu) > 1) then instance_destroy();
 
 with (instance)
 {
-	if (sprite_get_number(instance.image_index) == 1) then image_speed = 0;
+	image_index = floor(image_index);
+	
+	if (image_number == 1) then image_speed = 0;
 }
