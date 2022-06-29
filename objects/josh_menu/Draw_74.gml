@@ -323,7 +323,7 @@ if (showing_vars == true)
 		
 	if (GUI_Y < end_y && GUI_Y > start_y && GUI_X < end_x && GUI_X > start_x)
 	{
-		var_cursor = abs(((end_y - GUI_Y) div cell_height) - out_max) + var_wheel;
+		var_cursor = abs(((end_y - GUI_Y) div cell_height) - out_max) + var_wheel + 1;
 			
 		draw_set_color(text_selected_box_color);
 		draw_set_alpha(0.1);
