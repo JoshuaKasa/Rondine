@@ -8,11 +8,7 @@ if (mouse_check_button_pressed(mb_right))
 	
 	if (inst != noone)
 	{
-		var_wheel = 0;
 		instance = inst;
-		showing_vars = false;
-		vars = variable_instance_get_names(instance);
-		vars = ___array_merge_(vars, default_vars);
 	}
 	
 	drawing = true;
@@ -20,21 +16,36 @@ if (mouse_check_button_pressed(mb_right))
 	mouse_yy = GUI_Y;
 }
 
-var	start_x = mouse_xx;
-var	start_y = mouse_yy;
+var g_width = display_get_gui_width();
+var g_height = display_get_gui_height();
+
 var	width = 175;
 var	height = ceil(length / 2) * 100;
+var	start_x = (mouse_xx > g_width/2) ? mouse_xx - width : mouse_xx;
+var	start_y = (mouse_yy > g_height/2) ? mouse_yy - height : mouse_yy;
 var	end_x = start_x + width;
 var	end_y = start_y + height;
 
-var g_width = display_get_gui_width();
-var g_height = display_get_gui_height();
+if (end_x < start_x) 
+{
+	var temp = start_x;
+	
+	start_x = end_x;
+	end_x = start_x;
+}
+if (end_y < start_y)
+{
+	var temp = start_y;
+	
+	start_y = end_y;
+	end_y = start_y;
+}
 
 if (drawing == true)
 {
 	draw_set_color(box_color);
 	draw_set_alpha(0.7);
-	draw_rectangle(mouse_xx,mouse_yy, end_x, end_y, false);
+	draw_rectangle(start_x,start_y, end_x, end_y, false);
 	
 	draw_set_alpha(1);
 	
@@ -45,7 +56,7 @@ if (drawing == true)
 		var color = text_color;
 		
 		draw_set_color(box_color);
-		draw_line(mouse_xx,mouse_yy + (cell_height * i), end_x,mouse_yy + (cell_height * i));	
+		draw_line(start_x,start_y + (cell_height * i), end_x, start_y + (cell_height * i));
 		draw_set_color(color);
 		
 		if (i == cursor) then color = text_selected_color;
@@ -53,7 +64,7 @@ if (drawing == true)
 		
 		draw_set_color(color);
 		
-		draw_text(mouse_xx + 10,mouse_yy + text_start_y + (cell_height * i), options[i].name);
+		draw_text(start_x + 10,start_y + text_start_y + (cell_height * i), options[i]);
 	}
 	// Mouse
 	if (GUI_Y < end_y && GUI_Y > start_y && GUI_X < end_x && GUI_X > start_x)
@@ -62,13 +73,72 @@ if (drawing == true)
 		
 		draw_set_color(text_selected_box_color)
 		draw_set_alpha(0.1);
-		draw_rectangle(mouse_xx,mouse_yy + (cell_height * cursor), end_x,mouse_yy + (cell_height * (cursor + 1)), false);
+		draw_rectangle(start_x,start_y + (cell_height * cursor), end_x,start_y + (cell_height * (cursor + 1)), false);
 		draw_set_color(text_color);
 		draw_set_alpha(1);
 			
 		if (mouse_check_button_pressed(mb_left))
 		{				
-			options[cursor].func();	
+			// Options not related to the selected instance
+			if (cursor == 6)
+			{
+				instance = noone;
+				object_copied = false;
+				drawing = false;
+				creating = false;
+				showing_vars = false;
+				inspecting = false;
+			}
+			if (cursor == 2) then creating = true;
+			if (instance != noone)
+			{
+				// Options related to a selected instance
+				switch (cursor)
+				{
+					case 0: 
+					{
+						inspecting = true;
+						showing_vars = false;
+					}
+						break;
+								
+					case 1: 
+					{
+						instance_destroy(instance);	
+					}
+						break;
+								
+					case 3: 
+					{
+						copied = instance;
+						object_copied = true;
+					}
+						break;
+								
+					case 4: 
+					{
+						if (object_copied != false)
+						{
+							var lay = layer_create(depth - 1);
+							instance_create_layer(mouse_x,mouse_y, lay, copied.object_index);
+						}
+					}
+						break;
+						
+					case 5: 
+					{
+						inspecting = false;
+						showing_vars = true;
+					}
+						break;
+				}
+			}
+			// Options not related to a selected instance
+			else if (instance == noone && cursor != 6 && cursor != 2) 
+			{
+				error = 0;
+				showing_error = true;
+			}
 		}
 	}
 	else 
@@ -282,65 +352,130 @@ if (creating == true)
 
 if (showing_vars == true)
 {
-	out_var = array_length(vars) - max_vars;
-
-	var start_x = g_width - 325;
-	var start_y = 0;
-	var end_x = g_width;
-	var cell_height = 50;
-	var end_y = cell_height * max_vars;
-	var width = start_x - end_x;
-	var height = start_y - end_y;
-	var lines = abs(height / cell_height);
-		
-	draw_set_color(box_color);
-	draw_set_alpha(0.7);
+	vars = variable_instance_get_names(instance);
+	var len = array_length(vars);
 	
-	draw_rectangle(start_x,start_y, end_x,end_y, false);
-		
-	for (var i = 1; i <= lines; i++)
-	{
-		var offset_y = cell_height * i;
-			
-		draw_set_alpha(1);
-		
-		draw_line(start_x,start_y + offset_y, end_x, start_y + offset_y);
-	}
-		
-	draw_set_color(text_color);
-		
-	for (var i = var_wheel; i < var_wheel + max_vars; i++)
-	{
-		var text = variable_instance_get(instance, vars[i]);
-			
-		if (i == var_cursor) then color = text_selected_color;
-		else color = text_color;
-			
-		draw_set_color(color);
-			
-		draw_text(start_x + 10,start_y + cell_height/2 + (cell_height * i) - cell_height * var_wheel, vars[i] + ": " + string(text));
-	}
-		
-	if (GUI_Y < end_y && GUI_Y > start_y && GUI_X < end_x && GUI_X > start_x)
-	{
-		var_cursor = max_vars - ((end_y - GUI_Y) div cell_height) + var_wheel - 1;
-			
-		draw_set_color(text_selected_box_color);
-		draw_set_alpha(0.1);
-			
-		draw_rectangle(start_x,start_y + (cell_height * (var_cursor - var_wheel)), end_x,start_y + (cell_height * ((var_cursor + 1 - var_wheel))), false);
-			
-		if (mouse_check_button_pressed(mb_left)) 
+	if (len <= max_vars)
+	{	
+		var start_x = g_width - 325;
+		var start_y = 0;
+		var end_x = g_width;
+		var cell_height = 50;
+		var end_y = cell_height * len;
+		var width = start_x - end_x;
+		var height = start_y - end_y;
+		var lines = abs(height / cell_height);
+	
+		draw_set_color(box_color);
+		draw_set_alpha(0.7);
+	
+		draw_rectangle(start_x,start_y, end_x,end_y, false);
+
+		for (var i = 1; i <= lines; i++)
 		{
-			drawing_var = true;
-			last_type = typeof(variable_instance_get(instance, vars[var_cursor]));
-			last_var = vars[var_cursor];
+			var offset_y = cell_height * i;
+		
+			draw_set_alpha(1);
+		
+			draw_line(start_x,start_y + offset_y, end_x, start_y + offset_y);
+		}
+	
+		for (var i = 0; i < len; i++)
+		{
+			var text = variable_instance_get(instance, vars[i]);
+			
+			if (i == var_cursor) then color = text_selected_color;
+			else color = text_color;
+			
+			draw_set_color(color);
+			
+			draw_text(start_x + 10,start_y + cell_height/2 + (cell_height * i), vars[i] + ": " + string(text));
+		}
+		
+		if (GUI_Y < end_y && GUI_Y > start_y && GUI_X < end_x && GUI_X > start_x)
+		{
+			var_cursor = abs(((end_y - GUI_Y) div cell_height) - len + 1);
+			
+			draw_set_color(text_selected_box_color);
+			draw_set_alpha(0.1);
+			
+			draw_rectangle(start_x,start_y + (cell_height * var_cursor), end_x,start_y + (cell_height * (var_cursor + 1)), false);
+			
+			if (mouse_check_button_pressed(mb_left)) 
+			{
+				drawing_var = true;
+				last_type = typeof(variable_instance_get(instance, vars[var_cursor]));
+				last_var = vars[var_cursor];
+			}
+		}
+		else 
+		{
+			var_cursor = -1;
 		}
 	}
-	else 
+	else if (len > max_vars)
 	{
-		var_cursor = -1;
+		out_var = array_length(vars) - max_vars;
+
+		var start_x = g_width - 325;
+		var start_y = 0;
+		var end_x = g_width;
+		var cell_height = 50;
+		var end_y = cell_height * max_vars;
+		var width = start_x - end_x;
+		var height = start_y - end_y;
+		var lines = abs(height / cell_height);
+		
+		draw_set_color(box_color);
+		draw_set_alpha(0.7);
+	
+		draw_rectangle(start_x,start_y, end_x,end_y, false);
+		
+		for (var i = 1; i <= lines; i++)
+		{
+			var offset_y = cell_height * i;
+			
+			draw_set_alpha(1);
+		
+			draw_line(start_x,start_y + offset_y, end_x, start_y + offset_y);
+		}
+		
+		draw_set_color(text_color);
+		
+		for (var i = var_wheel; i < var_wheel + max_vars; i++)
+		{
+			var text = variable_instance_get(instance, vars[i]);
+			
+			if (i == var_cursor) then color = text_selected_color;
+			else color = text_color;
+			
+			draw_set_color(color);
+			
+			draw_text(start_x + 10,start_y + cell_height/2 + (cell_height * i) - cell_height * var_wheel, vars[i] + ": " + string(text));
+		}
+		
+		if (GUI_Y < end_y && GUI_Y > start_y && GUI_X < end_x && GUI_X > start_x)
+		{
+			var_cursor = abs(((end_y - GUI_Y) div cell_height) - out_max - 1) + var_wheel;
+			
+			draw_set_color(text_selected_box_color);
+			draw_set_alpha(0.1);
+			
+			draw_rectangle(start_x,start_y + (cell_height * (var_cursor - var_wheel)), end_x,start_y + (cell_height * ((var_cursor + 1 - var_wheel))), false);
+			
+			if (mouse_check_button_pressed(mb_left)) 
+			{
+				drawing_var = true;
+				last_type = typeof(variable_instance_get(instance, vars[var_cursor]));
+				last_var = vars[var_cursor];
+			}
+		}
+		else 
+		{
+			var_cursor = -1;
+		}
 	}
+	else error = 1;
 }
 // Creating error
 if (showing_error == true)
