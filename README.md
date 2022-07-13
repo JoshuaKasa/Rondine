@@ -1,6 +1,5 @@
-<p align="center">
-  <src="https://user-images.githubusercontent.com/87675824/178851970-45570bf9-ac45-4047-90dd-36cb4ccceb03.png">
-</p>
+
+![Rondine](https://user-images.githubusercontent.com/87675824/178853557-3705e67a-140e-40d6-8a2c-0d235d8df481.png)
 
 # Documentation
 
