@@ -14,3 +14,8 @@ You then succesfully imported Rondine into your project!
 Once Rondine is inside your project, you can place the object ***rondine_menu*** inside your room.
 Note that Rondine is a persisent object and so it will exists in every room after you place it inside one.
 Note also that you could have GUI size problems, since Rondinde resizes when it's created (you can always change it inside your code).
+
+## Modify
+Rondine is a versitile tool that can be modified however you want.
+First off, the aesthethic... You can change the Rondine's aesthethic by going into:
+***rondine_
