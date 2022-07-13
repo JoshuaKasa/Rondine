@@ -19,7 +19,6 @@ function ___rectangle_hover_(start_x,start_y, end_x,end_y)
 
 function ___oscillate_(from, to, duration)
 {
-	var TAU = pi * 2;
 	var dis = (to - from) / 2;
 	duration /= 120;
 	 
@@ -269,4 +268,16 @@ function ___array_merge_(array1, array2)
 	}
 	
 	return temp;
+}
+
+function ___array_exists(array, value)
+{
+	var length = array_length(array);
+	
+	for (var i = 0; i < length; i++)
+	{
+		if (array[i] == value) then return true;	
+	}
+	
+	return false;
 }

@@ -6,7 +6,7 @@ if (mouse_check_button_pressed(mb_right))
 {
 	var inst = instance_position(mouse_x,mouse_y, all);
 	
-	if (inst != noone)
+	if (inst != noone && !___array_exists(excluded_objects, inst))
 	{
 		var_wheel = 0;
 		instance = inst;

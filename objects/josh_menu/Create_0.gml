@@ -12,7 +12,7 @@ mouse_yy = mouse_y;
 drawing = false;
 
 // Menu options
-template =  new Option("Template", 
+template =  new Options("Template", 
 			function()
 			{
 				show_message("Hello world!");		
@@ -20,7 +20,7 @@ template =  new Option("Template",
 		);
 
 options = [
-	new Option("Inspect",
+	new Options("Inspect",
 		function()
 		{
 			if (instance != noone)
@@ -35,7 +35,7 @@ options = [
 			}
 		}
 	),
-	new Option("Delete",
+	new Options("Delete",
 		function()
 		{
 			if (instance != noone) then instance_destroy(instance);
@@ -46,13 +46,13 @@ options = [
 			}
 		}
 	),
-	new Option("Create",
+	new Options("Create",
 		function()
 		{
 			creating = true;
 		}
 	),
-	new Option("Copy",
+	new Options("Copy",
 		function()
 		{
 			if (instance != noone)
@@ -67,7 +67,7 @@ options = [
 			}
 		}
 	),
-	new Option("Paste",
+	new Options("Paste",
 		function()
 		{
 			if (object_copied != false)
@@ -82,7 +82,7 @@ options = [
 			}
 		}
 	),
-	new Option("Variable",
+	new Options("Variable",
 		function()
 		{
 			if (instance != noone)
@@ -97,7 +97,7 @@ options = [
 			}
 		}
 	),
-	new Option("Back",
+	new Options("Back",
 		function()
 		{
 			instance = noone;
@@ -205,3 +205,6 @@ text_selected_box_color = SELECTED_MENU_COLOR;
 // Full debug
 full_debug = false;
 old_number = instance_count;
+
+// Object exclusion
+excluded_objects = []; // Object.id
