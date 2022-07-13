@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Objects",
-    "path": "folders/josh_menu()/Objects.yy",
+    "path": "folders/Rondine/Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "rondine_menu",

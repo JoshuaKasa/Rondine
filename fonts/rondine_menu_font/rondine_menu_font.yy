@@ -130,7 +130,7 @@
   "maintainGms1Font": false,
   "parent": {
     "name": "Fonts",
-    "path": "folders/josh_menu()/Fonts.yy",
+    "path": "folders/Rondine/Fonts.yy",
   },
   "resourceVersion": "1.0",
   "name": "rondine_menu_font",

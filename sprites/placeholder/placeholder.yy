@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "josh_menu()",
-    "path": "folders/josh_menu().yy",
+    "name": "Rondine",
+    "path": "folders/Rondine.yy",
   },
   "resourceVersion": "1.0",
   "name": "placeholder",

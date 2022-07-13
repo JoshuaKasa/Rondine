@@ -23,10 +23,10 @@
   },
   "RoomOrderNodes": [],
   "Folders": [
-    {"folderPath":"folders/josh_menu()/Fonts.yy","order":0,"resourceVersion":"1.0","name":"Fonts","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/josh_menu()/Objects.yy","order":1,"resourceVersion":"1.0","name":"Objects","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/josh_menu().yy","order":14,"resourceVersion":"1.0","name":"josh_menu()","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/josh_menu()/Functions.yy","order":4,"resourceVersion":"1.0","name":"Functions","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Rondine/Fonts.yy","order":0,"resourceVersion":"1.0","name":"Fonts","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Rondine/Objects.yy","order":1,"resourceVersion":"1.0","name":"Objects","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Rondine.yy","order":14,"resourceVersion":"1.0","name":"Rondine","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Rondine/Functions.yy","order":4,"resourceVersion":"1.0","name":"Functions","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
