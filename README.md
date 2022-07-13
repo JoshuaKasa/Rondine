@@ -15,7 +15,14 @@ Once Rondine is inside your project, you can place the object ***rondine_menu***
 Note that Rondine is a persisent object and so it will exists in every room after you place it inside one.
 Note also that you could have GUI size problems, since Rondinde resizes when it's created (you can always change it inside your code).
 
-## Modify
-Rondine is a versitile tool that can be modified however you want.
+## Modify aesthethic
+Rondine is a versatile tool that can be modified however you want.
 First off, the aesthethic... You can change the Rondine's aesthethic by going into:
-***rondine_
+***Rondine -> Functions -> rondine_menu_settings.***
+There you can find all of the Rondine's options, especially colors.
+
+## Add options
+As said before, Rondine is very versatile, in fact, you can add various options and make them function as you want.
+For adding an option you wanna go to:
+***Rondine -> Objects -> rondine_menu -> Create Event.***
+Once in the create event you wanna go into the **options** array, and for adding a new option you want to:
