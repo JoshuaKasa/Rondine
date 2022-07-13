@@ -1,4 +1,4 @@
-function Option(name_, func_) constructor
+function Options(name_, func_) constructor
 {
 	name = name_;
 	func = func_;

@@ -12,13 +12,6 @@ mouse_yy = mouse_y;
 drawing = false;
 
 // Menu options
-template =  new Options("Template", 
-			function()
-			{
-				show_message("Hello world!");		
-			}
-		);
-
 options = [
 	new Options("Inspect",
 		function()
