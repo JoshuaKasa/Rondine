@@ -6,7 +6,7 @@
     "path": "folders/josh_menu()/Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "josh_menu_settings",
+  "name": "rondine_menuctor",
   "tags": [],
   "resourceType": "GMScript",
 }

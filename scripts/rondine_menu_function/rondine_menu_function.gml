@@ -241,10 +241,10 @@ function ___capitalize_(str)
 
 function ___draw_text_fade_(x__,y__, text)
 {
-	var lay = layer_create(josh_menu.depth);
+	var lay = layer_create(rondine_menu.depth);
 	
-	instance_create_layer(x,y, lay, josh_menu_text);
-	with (josh_menu_text)
+	instance_create_layer(x,y, lay, rondine_menu_text);
+	with (rondine_menu_text)
 	{
 		x_ = x__;
 		y_ = y__;

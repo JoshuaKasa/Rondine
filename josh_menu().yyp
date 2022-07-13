@@ -1,12 +1,12 @@
 {
   "resources": [
     {"id":{"name":"placeholder","path":"sprites/placeholder/placeholder.yy",},"order":3,},
-    {"id":{"name":"josh_menu_function","path":"scripts/josh_menu_function/josh_menu_function.yy",},"order":0,},
-    {"id":{"name":"josh_menu_text","path":"objects/josh_menu_text/josh_menu_text.yy",},"order":1,},
-    {"id":{"name":"josh_menu_settings","path":"scripts/josh_menu_settings/josh_menu_settings.yy",},"order":2,},
-    {"id":{"name":"josh_menuctor","path":"scripts/josh_menuctor/josh_menuctor.yy",},"order":1,},
-    {"id":{"name":"josh_menu","path":"objects/josh_menu/josh_menu.yy",},"order":0,},
-    {"id":{"name":"josh_menu_font","path":"fonts/josh_menu_font/josh_menu_font.yy",},"order":0,},
+    {"id":{"name":"rondine_menu_function","path":"scripts/rondine_menu_function/rondine_menu_function.yy",},"order":0,},
+    {"id":{"name":"rondine_menu_text","path":"objects/rondine_menu_text/rondine_menu_text.yy",},"order":1,},
+    {"id":{"name":"rondine_menu_settings","path":"scripts/rondine_menu_settings/rondine_menu_settings.yy",},"order":2,},
+    {"id":{"name":"rondine_menuctor","path":"scripts/rondine_menuctor/rondine_menuctor.yy",},"order":1,},
+    {"id":{"name":"rondine_menu","path":"objects/rondine_menu/rondine_menu.yy",},"order":0,},
+    {"id":{"name":"rondine_menu_font","path":"fonts/rondine_menu_font/rondine_menu_font.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Linux","path":"options/linux/options_linux.yy",},

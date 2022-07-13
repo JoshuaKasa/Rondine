@@ -133,7 +133,7 @@
     "path": "folders/josh_menu()/Fonts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "josh_menu_font",
+  "name": "rondine_menu_font",
   "tags": [],
   "resourceType": "GMFont",
 }
