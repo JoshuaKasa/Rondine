@@ -26,3 +26,6 @@ As said before, Rondine is very versatile, in fact, you can add various options 
 For adding an option you wanna go to:
 ***Rondine -> Objects -> rondine_menu -> Create Event.***
 Once in the create event you wanna go into the **options** array, and for adding a new option you want to:
+![carbon](https://user-images.githubusercontent.com/87675824/178851638-0165cb94-1e26-4bdd-b8e6-4e123434404d.png)
+This would be an example option:
+![carbon (1)](https://user-images.githubusercontent.com/87675824/178851856-66fa8097-1ef0-4529-913a-e5ae8187f39e.png)
