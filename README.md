@@ -52,3 +52,5 @@ For doing that you wanna go to:
 This is an example:
 
 ![carbon (2)](https://user-images.githubusercontent.com/87675824/178852721-542c84bb-72d3-42d2-8dbd-bd36b0f424c4.png)
+
+Here I'm excluding the objects: **oPlayer, oCamera, oMouse** (remember that you must put **.id** at the end of each object name for this to work). 
