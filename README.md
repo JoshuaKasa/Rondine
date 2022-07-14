@@ -3,7 +3,17 @@
 
 # Documentation
 
-Rondine is a debug menu developed for helping debugging your games in the best way possible!
+Rondine is a debug menu developed for helping debugging your games in the best way possible! 
+What can Rondine do?
+
+- Check every object variable in real time.
+- Modify object variables.
+- Create objects.
+- Copy and paste objects.
+- Delete objects.
+- Has a very simple GUI and setup.
+- Pretty customizable.
+- Works with every project.
 
 ## Installation
 
