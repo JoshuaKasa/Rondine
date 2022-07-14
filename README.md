@@ -60,7 +60,7 @@ Note that the object will be created at the position of where you clicked **Past
 
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/87675824/178869332-842b8034-5c34-46bd-bdab-3768c9d3a21b.gif)
 
-# Inspecting objects
+## Inspecting objects
 Inspecting is pretty different from changing or checking object's variables.
 In fact, with the inspection there's a set of pre-chosen variables that will show up on the top right, and will not be able to be changed.
 For closing the inspection, either select **Back** in the Rondine menu or click on the little **X** in the top right of the inspection menu.
@@ -72,7 +72,7 @@ Once Rondine has been imported into your project, you can place the object ***ro
 Note that Rondine is a persisent object and so it will exists in every room after you place it inside one.
 Note also that you could have GUI size problems, since Rondinde resizes when it's created (you can always change it inside your code).
 
-## 🍭 Modify aesthethic
+## Modify aesthethic
 Rondine is a versatile tool that can be modified however you want.
 First off, the aesthethic... You can change the Rondine's aesthethic by going into:
 
