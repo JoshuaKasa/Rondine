@@ -18,7 +18,7 @@ What can Rondine do?
 
 ## Installation
 
-For installing rondine into your project you have to download the file, then open it in a GameMaker Studio 2 window and go to:
+For installing Rondine into your project you have to download the file, then open it in a GameMaker Studio 2 window and go to:
 
 ```Tools -> Create Local Package -> Name it however you want```
 
@@ -54,7 +54,7 @@ however you want.
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/87675824/178868270-5687d5d8-ef36-4916-aa36-eff4f3ff707f.gif)
 
-## Coopying and pasting objects
+## Copying and pasting objects
 Copying and pasting is very easy, you just select **Copy** on the object you want and then click **Paste**.
 Note that the object will be created at the position of where you clicked **Paste**.
 
