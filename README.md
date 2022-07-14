@@ -1,7 +1,7 @@
 
 ![Rondine](https://user-images.githubusercontent.com/87675824/178853557-3705e67a-140e-40d6-8a2c-0d235d8df481.png)
 
-# ***Documentation***
+# 🧾 ***Documentation***
 
 Rondine is a debug menu developed for helping debugging your games in the best way possible! 
 What can Rondine do?
@@ -16,7 +16,7 @@ What can Rondine do?
 - Works with every project.
 
 
-## Installation
+## 💾 **Installation**
 
 For installing Rondine into your project you have to download the file, then open it in a GameMaker Studio 2 window and go to:
 
@@ -28,7 +28,7 @@ Once you've created the package you can go into your own project and import it b
 
 You then succesfully imported Rondine into your project!
 
-# **In-game usage**
+# 🪄 **In-game usage**
 
 ![Screenshot (495)](https://user-images.githubusercontent.com/87675824/178866714-4480bb54-bff3-4c38-9dce-cf13d9e53c35.png)
 
@@ -67,12 +67,12 @@ For closing the inspection, either select **Back** in the Rondine menu or click 
 
 ![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/87675824/178872278-1559b84b-ef87-4c0b-a68e-e8ea0667f5c0.gif)
 
-# **Usage**
+# 🪄 **Usage**
 Once Rondine has been imported into your project, you can place the object ***rondine_menu*** inside your room.
 Note that Rondine is a persisent object and so it will exists in every room after you place it inside one.
 Note also that you could have GUI size problems, since Rondinde resizes when it's created (you can always change it inside your code).
 
-## Modify aesthethic
+## 🍭 Modify aesthethic
 Rondine is a versatile tool that can be modified however you want.
 First off, the aesthethic... You can change the Rondine's aesthethic by going into:
 
