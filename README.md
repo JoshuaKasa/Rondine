@@ -1,7 +1,7 @@
 
 ![Rondine](https://user-images.githubusercontent.com/87675824/178853557-3705e67a-140e-40d6-8a2c-0d235d8df481.png)
 
-# 🧾 ***Documentation***
+# 🧾 ***RONDINE***
 
 Rondine is a debug menu developed for helping debugging your games in the best way possible! 
 What can Rondine do?
@@ -16,7 +16,7 @@ What can Rondine do?
 - Works with every project.
 
 
-## 💾 **Installation**
+# 💾 **Installation**
 
 For installing Rondine into your project you have to download the file, then open it in a GameMaker Studio 2 window and go to:
 
