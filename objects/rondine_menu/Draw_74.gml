@@ -4,9 +4,16 @@ ___draw_set_falign_(fa_left,fa_middle);
 
 if (mouse_check_button_pressed(mb_right))
 {
-	var inst = instance_position(mouse_x,mouse_y, all);
+	with (all)
+	{
+		if(mouse_x == clamp(mouse_x, bbox_left, bbox_right) && mouse_y == clamp(mouse_y, bbox_top, bbox_bottom))
+		{
+			if (!___array_exists(other.excluded_objects, self.id)) then other.instance = self;
+		}
+	}
+	var inst = instance;
 	
-	if (inst != noone && !___array_exists(excluded_objects, inst))
+	if (inst != noone)
 	{
 		var_wheel = 0;
 		instance = inst;
