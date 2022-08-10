@@ -8,7 +8,7 @@ if (drawing == true)
 		if (sprite != -1) 
 		{
 			draw_set_alpha(1);
-			draw_set_color(josh_menu.box_color);
+			draw_set_color(rondine_menu.box_color);
 			___draw_hitbox_();
 		}
 	}

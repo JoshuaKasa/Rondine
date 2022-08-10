@@ -1,3 +1,5 @@
+#macro TAU pi * 2
+
 function ___draw_hitbox_()
 {
 	draw_rectangle(bbox_left,bbox_top, bbox_right,bbox_bottom, true);
