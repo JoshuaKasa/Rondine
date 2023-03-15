@@ -77,7 +77,7 @@ For closing the inspection, either select **Back** in the Rondine menu or click 
 
 # 🪄 **Usage**
 Once Rondine has been imported into your project, you can place the object `rondine_menu` inside your room.
-Note that `rondine_menu` is a persistent object, this will make it so exists in every room after and including the one you placed it in.
+Note that `rondine_menu` is a persistent object, this will make it exist in every room including and after the one you placed it in.
 Also note that you could have potential GUI size problems, since Rondine resizes when it's created (you can always change it inside your code).
 
 ## Modify Aesthetic
