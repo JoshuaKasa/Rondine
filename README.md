@@ -1,6 +1,13 @@
 
 ![Rondine](https://user-images.githubusercontent.com/87675824/178853557-3705e67a-140e-40d6-8a2c-0d235d8df481.png)
 
+# 🖊️ ***TO-DO***
+
+- Object search: Search bar for searching objects and making it easier to find them.
+- Performance monitor: A way to monitor the performance of your game, such as frame rate and memory usage, could help you identify areas that need optimization.
+- States save / loading: The possibility of saving and loading game states to make it easier to debug certain states of the game and finding errors.
+- Keyboard shortcut customization: Allowing users to customize the keyboard shortcuts for Rondine's functions could improve workflow and make it easier to use.
+
 # 🧾 ***RONDINE***
 
 Rondine is a debug menu developed for helping debugging your games in the best way possible! 
