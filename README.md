@@ -1,5 +1,6 @@
-
-![Rondine](https://user-images.githubusercontent.com/87675824/178853557-3705e67a-140e-40d6-8a2c-0d235d8df481.png)
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/87675824/178853557-3705e67a-140e-40d6-8a2c-0d235d8df481.png" alt="Rondine Logo" style="width:300px;height:300px;">
+</div>
 
 # 🖊️ ***TO-DO***
 
