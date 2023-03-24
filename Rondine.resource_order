@@ -1,0 +1,9 @@
+{
+  "FolderOrderSettings": [],
+  "ResourceOrderSettings": [
+    {"name":"placeholder","order":3,"path":"sprites/placeholder/placeholder.yy",},
+    {"name":"rondine_menu_text","order":1,"path":"objects/rondine_menu_text/rondine_menu_text.yy",},
+    {"name":"rondine_menu_settings","order":2,"path":"scripts/rondine_menu_settings/rondine_menu_settings.yy",},
+    {"name":"rondine_menuctor","order":1,"path":"scripts/rondine_menuctor/rondine_menuctor.yy",},
+  ],
+}

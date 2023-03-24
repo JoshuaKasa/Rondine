@@ -201,3 +201,7 @@ old_number = instance_count;
 
 // Object exclusion
 excluded_objects = []; // Object.id
+
+// Shortcuts
+shortcut_save = vk_f5;
+shortcut_load = vk_f6;
