@@ -4,7 +4,7 @@
 
 # 🖊️ ***TO-DO***
 
-- Object search: Search bar for searching objects and making it easier to find them.
+- ~~Object search: Search bar for searching objects and making it easier to find them.~~
 - Performance monitor: A way to monitor the performance of your game, such as frame rate and memory usage, could help you identify areas that need optimization.
 - States save / loading: The possibility of saving and loading game states to make it easier to debug certain states of the game and finding errors.
 - Keyboard shortcut customization: Allowing users to customize the keyboard shortcuts for Rondine's functions could improve workflow and make it easier to use.
@@ -22,6 +22,7 @@ What can Rondine do?
 - Has a very simple GUI and setup.
 - Pretty customizable.
 - Works with every project.
+- Save and load game states.
 
 
 # 💾 **Installation**
