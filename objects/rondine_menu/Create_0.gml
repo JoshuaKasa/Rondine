@@ -1,5 +1,5 @@
 // Setup
-depth = -1000;
+depth = -1000; // Adding depth variable so that 
 
 // Macros
 #macro GUI_X device_mouse_x_to_gui(0)
