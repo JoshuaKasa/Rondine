@@ -8,6 +8,8 @@
 - ~~Performance monitor: A way to monitor the performance of your game, such as frame rate and memory usage, could help you identify areas that need optimization.~~
 - ~States save / loading: The possibility of saving and loading game states to make it easier to debug certain states of the game and finding errors.~
 - Keyboard shortcut customization: Allowing users to customize the keyboard shortcuts for Rondine's functions could improve workflow and make it easier to use.
+- Remove the ability to copy and paste objects: Copy and paste was a feature only implemented for debugging and checking the menu functionalities. With the new abilities of Rondine it's pretty useless to have copy and pasting, since it can be easily made yourself.
+Remoing the ability to copy and paste will reduce the size of the menu and leave space for more option, like save and load or performance monitor. 
 
 # 🧾 ***RONDINE***
 
