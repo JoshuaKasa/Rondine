@@ -23,6 +23,7 @@ What can Rondine do?
 - Pretty customizable.
 - Works with every project.
 - Save and load game states.
+- Checking the performance of your game with a graph.
 
 
 # 💾 **Installation**
