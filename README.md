@@ -4,7 +4,7 @@
 
 # 🖊️ ***TO-DO***
 
-- Object search: Search bar for searching objects and making it easier to find them.
+- Object search: Search bar for searching objects to make them easier to find. Right now, the rondine menu for object searching is very full, and the objects are not ordered by alphabetical order or any other kind of ordering, making it hard to find objects when having too many. The object search bar would be an easy and intuitive way of finding objects and reduce the time wasted for it.
 - ~~Performance monitor: A way to monitor the performance of your game, such as frame rate and memory usage, could help you identify areas that need optimization.~~
 - ~States save / loading: The possibility of saving and loading game states to make it easier to debug certain states of the game and finding errors.~
 - Keyboard shortcut customization: Allowing users to customize the keyboard shortcuts for Rondine's functions could improve workflow and make it easier to use.
