@@ -138,7 +138,7 @@ function ___draw_variable_(x_, y_, width, height, text)
 	var box_height = 30 * 1.2;
 	var confirm_height = box_height + 30 * 1.2;
 	
-	___draw_set_falign_(fa_middle,fa_center);
+	___draw_set_falign_(fa_center, fa_middle);
 	draw_set_alpha(0.7);
 	
 	draw_set_color(box_color);
@@ -231,7 +231,7 @@ function ___draw_variable_(x_, y_, width, height, text)
 		}
 	}
 	
-	___draw_set_falign_(fa_left,fa_center);
+	___draw_set_falign_(fa_left, fa_middle);
 	draw_set_color(text_color);
 	if (writing_type == true && string_width(keyboard_string) <= width)
 	{
@@ -243,7 +243,7 @@ function ___draw_variable_(x_, y_, width, height, text)
 	}
 	draw_text(x_ + 5,y_ - box_height/2, new_var);
 	
-	___draw_set_falign_(fa_middle,fa_center);
+	___draw_set_falign_(fa_center, fa_middle);
 	if (___rectangle_hover_(x_,y_ - confirm_height, x_ + width,y_ - box_height - 1))
 	{
 		draw_set_alpha(0.1);
