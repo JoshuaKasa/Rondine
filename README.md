@@ -4,10 +4,12 @@
 
 # 🖊️ ***TO-DO***
 
-- Object search: Search bar for searching objects and making it easier to find them.
-- Performance monitor: A way to monitor the performance of your game, such as frame rate and memory usage, could help you identify areas that need optimization.
-- States save / loading: The possibility of saving and loading game states to make it easier to debug certain states of the game and finding errors.
+- Object search: Search bar for searching objects to make them easier to find. Right now, the rondine menu for object searching is very full, and the objects are not ordered by alphabetical order or any other kind of ordering, making it hard to find objects when having too many. The object search bar would be an easy and intuitive way of finding objects and reduce the time wasted for it.
+- ~~Performance monitor: A way to monitor the performance of your game, such as frame rate and memory usage, could help you identify areas that need optimization.~~
+- ~States save / loading: The possibility of saving and loading game states to make it easier to debug certain states of the game and finding errors.~
 - Keyboard shortcut customization: Allowing users to customize the keyboard shortcuts for Rondine's functions could improve workflow and make it easier to use.
+- Remove the ability to copy and paste objects: Copy and paste was a feature only implemented for debugging and checking the menu functionalities. With the new abilities of Rondine it's pretty useless to have copy and pasting, since it can be easily made yourself.
+Remoing the ability to copy and paste will reduce the size of the menu and leave space for more option, like save and load or performance monitor. 
 
 # 🧾 ***RONDINE***
 
@@ -22,6 +24,8 @@ What can Rondine do?
 - Has a very simple GUI and setup.
 - Pretty customizable.
 - Works with every project.
+- Save and load game states.
+- Checking the performance of your game with a graph.
 
 
 # 💾 **Installation**
@@ -47,12 +51,16 @@ Create objects with Rondine is very easy and straightforward, you just press the
 your desired object.
 If you have more than 10 objects in your game you'll be able to scroll down the objects list using the **Mouse wheel**.
 
-![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/87675824/178868522-b16be3f1-1362-48d1-b053-8523a6bbc1b3.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/87675824/178868522-b16be3f1-1362-48d1-b053-8523a6bbc1b3.gif" width = "100%">
+</p>
 
 ## Delete Objects
 For deleting objects you can just press your button for opening Rondine and then select **Delete** on your selected object.
 
-![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/87675824/178868893-daaba9b9-93d7-45dc-9712-11a3b4163e56.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/87675824/178868893-daaba9b9-93d7-45dc-9712-11a3b4163e56.gif" width="100%">
+</p>
 
 ## Change Object Variables
 Changing an object's variables is probably the less intuitive thing of Rondine, but once you know how to do it it's super easy!
@@ -60,20 +68,20 @@ You just select your object and then select **Variables** in the Rondine menu.
 There you can see all of your object's variables (you can scroll down with the mouse wheel) and you can select one and change it 
 however you want.
 
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/87675824/178868270-5687d5d8-ef36-4916-aa36-eff4f3ff707f.gif)
+<img src = "https://user-images.githubusercontent.com/87675824/178868522-b16be3f1-1362-48d1-b053-8523a6bbc1b3.gif" width = "100%">
 
 ## Copying and Pasting Objects
 Copying and pasting is very easy, you just select **Copy** on the object you want and then click **Paste**.
 Note that the object will be created at the position of where you clicked **Paste**.
 
-![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/87675824/178869332-842b8034-5c34-46bd-bdab-3768c9d3a21b.gif)
+<img src = "https://user-images.githubusercontent.com/87675824/178869332-842b8034-5c34-46bd-bdab-3768c9d3a21b.gif" width = "100%">
 
 ## Inspecting Objects
 Inspecting is pretty different from changing or checking object's variables.
 In fact, with the inspection there's a set of pre-chosen variables that will show up on the top right, and will not be able to be changed.
 For closing the inspection, either select **Back** in the Rondine menu or click on the little **X** in the top right of the inspection menu.
 
-![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/87675824/178872278-1559b84b-ef87-4c0b-a68e-e8ea0667f5c0.gif)
+<img src = "https://user-images.githubusercontent.com/87675824/178872278-1559b84b-ef87-4c0b-a68e-e8ea0667f5c0.gif" width = "100%">
 
 # 🪄 **Usage**
 Once Rondine has been imported into your project, you can place the object `rondine_menu` inside your room.

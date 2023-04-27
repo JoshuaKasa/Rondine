@@ -1,5 +1,5 @@
 // Setup
-depth = -1000;
+depth = -1000; // Adding depth variable so that 
 
 // Macros
 #macro GUI_X device_mouse_x_to_gui(0)
@@ -201,3 +201,7 @@ old_number = instance_count;
 
 // Object exclusion
 excluded_objects = []; // Object.id
+
+// Shortcuts
+shortcut_save = vk_f5;
+shortcut_load = vk_f6;

@@ -409,4 +409,3 @@ if (full_debug == true)
 		___draw_text_fade_(g_width/2,g_height/2, "An instances was destroyed");
 	}
 }
-
