@@ -14,10 +14,7 @@
     "name": "Objects",
     "path": "folders/Rondine/Objects.yy",
   },
-  "parentObjectId": {
-    "name": "__rondine_parent",
-    "path": "objects/__rondine_parent/__rondine_parent.yy",
-  },
+  "parentObjectId": null,
   "persistent": true,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -35,5 +32,8 @@
   "solid": false,
   "spriteId": null,
   "spriteMaskId": null,
+  "tags": [
+    "Rondine",
+  ],
   "visible": true,
 }
