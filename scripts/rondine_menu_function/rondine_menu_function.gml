@@ -316,21 +316,21 @@ function ___draw_text_fade_(x__, y__, text)
  * @function ___array_merge_
  * @param {Array} array1
  * @param {Array} array2
- * @returns {Array}
+ * @returns {Array<Any*>}
  */
 function ___array_merge_(array1, array2)
 {
-	var temp = [];
 	var length1 = array_length(array1);
 	var length2 = array_length(array2);
+	var temp = array_create(length1 + length2);
 	
 	for (var i = 0; i < length1; i++)
 	{
-		array_push(temp, array1[i]);
+		temp[i] = array1[i];
 	}
 	for (var i = 0; i < length2; i++)
 	{
-		array_push(temp, array2[i]);	
+		temp[length1 + i] = array2[i];
 	}
 	
 	return temp;
