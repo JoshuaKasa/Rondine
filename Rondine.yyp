@@ -23,6 +23,7 @@
     "IDEVersion": "2023.2.1.75",
   },
   "resources": [
+    {"id":{"name":"__rondine_parent","path":"objects/__rondine_parent/__rondine_parent.yy",},},
     {"id":{"name":"placeholder","path":"sprites/placeholder/placeholder.yy",},},
     {"id":{"name":"rondine_menu_function","path":"scripts/rondine_menu_function/rondine_menu_function.yy",},},
     {"id":{"name":"rondine_menu_text","path":"objects/rondine_menu_text/rondine_menu_text.yy",},},

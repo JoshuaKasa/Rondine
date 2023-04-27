@@ -200,7 +200,8 @@ full_debug = false;
 old_number = instance_count;
 
 // Object exclusion
-excluded_objects = []; // Object.id
+// Add object indexes to this array to exclude them from being interacted with
+excluded_objects = [];
 
 // Shortcuts
 shortcut_save = vk_f5;

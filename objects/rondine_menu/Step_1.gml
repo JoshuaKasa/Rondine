@@ -1,4 +1,6 @@
 /// @desc
+if (instance_number(object_index) > 1) then instance_destroy();
+
 var windows_width = window_get_width();
 var windows_height = window_get_height();
 display_set_gui_size(windows_width,windows_height);
@@ -11,8 +13,6 @@ if (array_length(objects) > max_objects)
 
 if (mouse_wheel_down() && var_wheel < out_var) then var_wheel++;
 else if (mouse_wheel_up() && var_wheel > 0) then var_wheel--;
-
-if (instance_number(rondine_menu) > 1) then instance_destroy();
 
 with (instance)
 {

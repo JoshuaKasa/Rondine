@@ -4,14 +4,20 @@ ___draw_set_falign_(fa_left,fa_middle);
 
 if (mouse_check_button_pressed(mb_right))
 {
+	var inst = noone;
 	with (all)
 	{
+		// Don't allow Rondine to interact with itself
+		if (object_is_ancestor(object_index, __rondine_parent)) then continue;
+
 		if(mouse_x == clamp(mouse_x, bbox_left, bbox_right) && mouse_y == clamp(mouse_y, bbox_top, bbox_bottom))
 		{
-			if (!___array_exists(other.excluded_objects, self.id)) then other.instance = self;
+			if (!___array_exists(other.excluded_objects, object_index)) {
+				inst = id;
+				break; // Exit early on first found instance
+			}
 		}
 	}
-	var inst = instance;
 	
 	if (inst != noone)
 	{

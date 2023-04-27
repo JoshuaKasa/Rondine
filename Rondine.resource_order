@@ -1,6 +1,7 @@
 {
   "FolderOrderSettings": [],
   "ResourceOrderSettings": [
+    {"name":"__rondine_parent","order":2,"path":"objects/__rondine_parent/__rondine_parent.yy",},
     {"name":"placeholder","order":3,"path":"sprites/placeholder/placeholder.yy",},
     {"name":"rondine_menu_text","order":1,"path":"objects/rondine_menu_text/rondine_menu_text.yy",},
     {"name":"rondine_menu_settings","order":2,"path":"scripts/rondine_menu_settings/rondine_menu_settings.yy",},

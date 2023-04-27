@@ -14,7 +14,10 @@
     "name": "Objects",
     "path": "folders/Rondine/Objects.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "__rondine_parent",
+    "path": "objects/__rondine_parent/__rondine_parent.yy",
+  },
   "persistent": true,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
