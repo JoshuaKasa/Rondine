@@ -32,5 +32,8 @@
   "solid": false,
   "spriteId": null,
   "spriteMaskId": null,
+  "tags": [
+    "Rondine",
+  ],
   "visible": true,
 }

@@ -115,10 +115,12 @@ This would be an example option:
 Rondine gives you the possibility of excluding certain objects that you don't want to inspect or debug.
 For doing that you wanna go to:
 
-```Rondine -> rondine_menu -> Go to the last line -> excluded_objects[] -> Object name + .id```
+```Rondine -> rondine_menu -> Find excluded_objects variable -> excluded_objects[] -> Add object name(s) you want to exclude```
 
-This is an example:
+For example:
 
-![carbon (2)](https://user-images.githubusercontent.com/87675824/178852721-542c84bb-72d3-42d2-8dbd-bd36b0f424c4.png)
+```gml
+excluded_objects = [oPlayer, oMouse, oCamera];
+```
 
-Here I'm excluding the objects: **oPlayer, oCamera, oMouse** (remember that you must put `.id` at the end of each object name for this to work). 
+Here I'm excluding the objects: **oPlayer, oCamera, oMouse**
