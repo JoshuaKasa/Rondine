@@ -1,17 +1,33 @@
 #macro TAU pi * 2
 
+/**
+ * @function ___draw_hitbox_
+ */
 function ___draw_hitbox_()
 {
-	draw_rectangle(bbox_left,bbox_top, bbox_right,bbox_bottom, true);
+	draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true);
 }
 
-function ___draw_set_falign_(halign,valign)
+/**
+ * @function ___draw_set_falign_
+ * @param {Constant.HAlign} halign
+ * @param {Constant.VAlign} valign
+ */
+function ___draw_set_falign_(halign, valign)
 {
 	draw_set_halign(halign);
 	draw_set_valign(valign);
 }
 
-function ___rectangle_hover_(start_x,start_y, end_x,end_y)
+/**
+ * @function ___rectangle_hover_
+ * @param {Real} start_x
+ * @param {Real} start_y
+ * @param {Real} end_x
+ * @param {Real} end_y
+ * @returns {Bool}
+ */
+function ___rectangle_hover_(start_x, start_y, end_x, end_y)
 {
 	var mx = GUI_X;
 	var my = GUI_Y;
@@ -19,6 +35,13 @@ function ___rectangle_hover_(start_x,start_y, end_x,end_y)
 	return point_in_rectangle(mx,my, start_x,start_y, end_x,end_y);
 }
 
+/**
+ * @function ___oscillate_
+ * @param {Real} from
+ * @param {Real} to
+ * @param {Real} duration
+ * @returns {Real}
+ */
 function ___oscillate_(from, to, duration)
 {
 	var dis = (to - from) / 2;
@@ -27,12 +50,28 @@ function ___oscillate_(from, to, duration)
 	return from + dis + sin(((current_time / 1000) + to * TAU)/duration) * dis;
 }
 
+/**
+ * @function ___blink_
+ * @param {Real} from
+ * @param {Real} to
+ * @param {Real} duration
+ * @returns {Real}
+ */
 function ___blink_(from, to, duration)
 {
 	return round(___oscillate_(from, to, duration));
 }
 
-function ___draw_message_(x_,y_, width,height, message_, to_change)
+/**
+ * @function ___draw_message_
+ * @param {Real} x_
+ * @param {Real} y_
+ * @param {Real} width
+ * @param {Real} height
+ * @param {String} message_
+ * @param {Real} to_change
+ */
+function ___draw_message_(x_, y_, width, height, message_, to_change)
 {
 	draw_set_color(box_color);
 	draw_set_alpha(1);
@@ -57,7 +96,7 @@ function ___draw_message_(x_,y_, width,height, message_, to_change)
 	{
 		draw_set_alpha(0.1);
 		draw_set_color(text_selected_box_color);
-		draw_rectangle(x_,y_ + height - 30, x_ + width,y_ + height, false);		
+		draw_rectangle(x_,y_ + height - 30, x_ + width,y_ + height, false);
 		draw_set_color(text_selected_color);
 		
 		if (mouse_check_button_pressed(mb_left))
@@ -83,7 +122,15 @@ function ___draw_message_(x_,y_, width,height, message_, to_change)
 	draw_text(center_x,center_y, message_);
 }
 
-function ___draw_variable_(x_,y_, width,height, text)
+/**
+ * @function ___draw_variable_
+ * @param {Real} x_
+ * @param {Real} y_
+ * @param {Real} width
+ * @param {Real} height
+ * @param {String} text
+ */
+function ___draw_variable_(x_, y_, width, height, text)
 {
 	var cells = array_length(types);
 	var cell_height = (height - (height - 30)) * 1.2;
@@ -91,7 +138,7 @@ function ___draw_variable_(x_,y_, width,height, text)
 	var box_height = 30 * 1.2;
 	var confirm_height = box_height + 30 * 1.2;
 	
-	___draw_set_falign_(fa_middle,fa_center);
+	___draw_set_falign_(fa_center, fa_middle);
 	draw_set_alpha(0.7);
 	
 	draw_set_color(box_color);
@@ -184,7 +231,7 @@ function ___draw_variable_(x_,y_, width,height, text)
 		}
 	}
 	
-	___draw_set_falign_(fa_left,fa_center);
+	___draw_set_falign_(fa_left, fa_middle);
 	draw_set_color(text_color);
 	if (writing_type == true && string_width(keyboard_string) <= width)
 	{
@@ -196,7 +243,7 @@ function ___draw_variable_(x_,y_, width,height, text)
 	}
 	draw_text(x_ + 5,y_ - box_height/2, new_var);
 	
-	___draw_set_falign_(fa_middle,fa_center);
+	___draw_set_falign_(fa_center, fa_middle);
 	if (___rectangle_hover_(x_,y_ - confirm_height, x_ + width,y_ - box_height - 1))
 	{
 		draw_set_alpha(0.1);
@@ -230,18 +277,29 @@ function ___draw_variable_(x_,y_, width,height, text)
 	draw_text(x_ + width/2,y_ - confirm_height + cell_height/2, "Confirm");
 }
 
+/**
+ * @function ___capitalize_
+ * @param {String} str
+ * @returns {String}
+ */
 function ___capitalize_(str)
 {
 	var s = string_char_at(str, 1);
 		
 	s = string_upper(s);
-	str = string_delete(str, 1,1);
+	str = string_delete(str, 1, 1);
 	str = string_insert(s,str, 1);
 	
 	return str;
 }
 
-function ___draw_text_fade_(x__,y__, text)
+/**
+ * @function ___draw_text_fade_
+ * @param {Real} x__
+ * @param {Real} y__
+ * @param {String} text
+ */
+function ___draw_text_fade_(x__, y__, text)
 {
 	var lay = layer_create(rondine_menu.depth);
 	
@@ -254,31 +312,43 @@ function ___draw_text_fade_(x__,y__, text)
 	}
 }
 
+/**
+ * @function ___array_merge_
+ * @param {Array} array1
+ * @param {Array} array2
+ * @returns {Array<Any*>}
+ */
 function ___array_merge_(array1, array2)
 {
-	var temp = [];
 	var length1 = array_length(array1);
 	var length2 = array_length(array2);
+	var temp = array_create(length1 + length2);
 	
 	for (var i = 0; i < length1; i++)
 	{
-		array_push(temp, array1[i]);
+		temp[i] = array1[i];
 	}
 	for (var i = 0; i < length2; i++)
 	{
-		array_push(temp, array2[i]);	
+		temp[length1 + i] = array2[i];
 	}
 	
 	return temp;
 }
 
+/**
+ * @function ___array_exists
+ * @param {Array} array
+ * @param {Any} value
+ * @returns {Bool}
+ */
 function ___array_exists(array, value)
 {
 	var length = array_length(array);
 	
 	for (var i = 0; i < length; i++)
 	{
-		if (array[i] == value) then return true;	
+		if (array[i] == value) then return true;
 	}
 	
 	return false;

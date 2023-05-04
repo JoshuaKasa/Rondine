@@ -5,7 +5,7 @@ if (drawing == true)
 	{
 		var sprite = object_get_sprite(object_index);
 		
-		if (sprite != -1) 
+		if (sprite_exists(sprite)) 
 		{
 			draw_set_alpha(1);
 			draw_set_color(rondine_menu.box_color);
